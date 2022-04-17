@@ -3,12 +3,14 @@ import { getConcerts, createConcert, deleteConcert, updateConcert } from './serv
 import ConcertForm from './components/ConcertForm';
 import ConcertList from './components/ConcertList';
 import EditModal from './components/EditModal';
-import './App.css'
+import './App.css';
+
+let tempID;
 
 export default function App() {
   
   const [concerts, setConcerts] = useState([]);
-  const [editConcert, setEditConcert] = useState(null);
+  const [editConcert, setEditConcert] = useState([]);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const refreshConcerts = async () => {
@@ -31,6 +33,9 @@ export default function App() {
   }
 
   const startHandleEdit = (concert) => {
+    if(concert === null) {
+      tempID = Math.random();
+    }
     setEditConcert(concert.id);
     setIsEditModalOpen(true);
   }
@@ -60,12 +65,13 @@ export default function App() {
         />
         </div>
       </div>
-      <EditModal 
+      <EditModal
+          key={(editConcert) ? editConcert.id : tempID} 
           onEdit={handleEdit}
           isOpen={isEditModalOpen}
           concert={editConcert}
           
-        />
+      />
     </div>
   );
 }

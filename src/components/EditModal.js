@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Modal as BootstrapModal } from 'bootstrap';
 
 export default function EditModal({ concert, onEdit, isOpen }) {
-
+  const [editID, setEditID] =useState((concert) ? concert.id : "");
   const [editDate, setEditDate] = useState((concert) ? concert.date : "");
   const [editArtist, setEditArtist] = useState((concert) ? concert.artist : "");
   const [editVenue, setEditVenue] = useState((concert) ? concert.venue : "");
@@ -20,7 +20,7 @@ export default function EditModal({ concert, onEdit, isOpen }) {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-          <h5 className="modal-title">Edit Concert Entry</h5>
+            <h5 className="modal-title">Edit Concert Entry</h5>
           </div>
           <div className="modal-body">
             <div className="mb-2">
