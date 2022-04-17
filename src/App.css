@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.main{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  font-family: 'Caveat', sans-serif;
+}
+
+.concert-table{
+  border-collapse: separate;
+  border-spacing: 10px
 }
