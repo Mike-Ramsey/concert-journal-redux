@@ -1,21 +1,22 @@
 import React from 'react';
 
-function Concert({ concert, onDelete, onEdit}) {
+function Concert({ concert, onDelete, onStartEdit}) {
   return (
     <tr key={concert.id}>
       <td key={`date-${concert.id}`}>{concert.date}</td>
       <td key={`artist-${concert.id}`}>{concert.artist}</td>
       <td key={`venue-${concert.id}`}>{concert.venue}</td>
       <td key={`notes-${concert.id}`}>{concert.notes}</td>
-      <td><button className='btn btn-sm btn-success' onClick={() => onEdit(concert)}>Edit</button></td>
+      <td><button className='btn btn-sm btn-success' onClick={() => onStartEdit(concert)}>Edit</button></td>
       <td><button className='btn btn-sm btn-danger' onClick={() => onDelete(concert)}>Delete</button></td>
     </tr>
   )
 }
 
-export default function ConcertList({ concerts, onDelete, onEdit }) {
-  const concertElements = concerts.map(concert => <Concert key={concert.id} concert={concert} onDelete={onDelete} onEdit={onEdit}/> );
-
+export default function ConcertList({ concerts, onDelete, onStartEdit }) {
+  
+  const concertElements = concerts.map(concert => <Concert key={concert.id} concert={concert} onDelete={onDelete} onStartEdit={onStartEdit}/> );
+  
   return (
     <div>
       <table className="concert-table">

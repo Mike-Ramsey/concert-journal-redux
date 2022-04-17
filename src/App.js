@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { getConcerts, createConcert, deleteConcert, updateConcert } from './services/ConcertService';
 import ConcertForm from './components/ConcertForm';
 import ConcertList from './components/ConcertList';
+import EditModal from './components/EditModal';
 import './App.css'
 
 export default function App() {
   
   const [concerts, setConcerts] = useState([]);
+  const [editConcert, setEditConcert] = useState(null);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const refreshConcerts = async () => {
     const freshConcerts = await getConcerts();
@@ -27,8 +30,14 @@ export default function App() {
     refreshConcerts();
   }
 
-  const handleEdit = async () => {
-    await updateConcert();
+  const startHandleEdit = (concert) => {
+    setEditConcert(concert);
+    setIsEditModalOpen(true);
+  }
+  
+  const handleEdit = async (concertData) => {
+    await updateConcert({...editConcert, date: concertData.date, artist: concertData.artist, venue: concertData.venue, notes: concertData.notes});
+    setIsEditModalOpen(false);
     refreshConcerts();
   }
 
@@ -46,11 +55,17 @@ export default function App() {
         <div className="col-md-9">
         <ConcertList 
           concerts={concerts}
-          onEdit={handleEdit}
+          onStartEdit={startHandleEdit}
           onDelete={handleDelete}
         />
         </div>
       </div>
+      <EditModal 
+          onEdit={handleEdit}
+          isOpen={isEditModalOpen}
+          concert={editConcert}
+          
+        />
     </div>
   );
 }
