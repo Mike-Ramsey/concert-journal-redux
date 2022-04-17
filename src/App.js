@@ -31,7 +31,7 @@ export default function App() {
   }
 
   const startHandleEdit = (concert) => {
-    setEditConcert(concert);
+    setEditConcert(concert.id);
     setIsEditModalOpen(true);
   }
   
