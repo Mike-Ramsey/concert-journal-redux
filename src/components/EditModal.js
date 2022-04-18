@@ -39,7 +39,7 @@ export default function EditModal({ concert, onEdit, isOpen }) {
               <label className="form-label">Notes </label>
               <textarea rows='2' className="form-control" value={editNotes} onChange={(e) => setEditNotes(e.target.value)} />
             </div>
-            <button onClick={onEdit} className="btn btn-primary btn-sm">Save Changes</button>
+            <button onClick={onEdit} className="btn btn-primary btn-sm">{concert.isComplete ? 'Cancel' : 'Save Changes'}</button>
           </div>
         </div>
       </div>

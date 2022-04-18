@@ -39,7 +39,7 @@ export default function ConcertForm({ concert, addConcert }) {
       <label className="form-label">Notes </label>
       <textarea rows='2' className="form-control" value={notesValue} onChange={(e) => setNotesValue(e.target.value)} />
     </div>
-    <button onClick={handleAddConcert} className='btn btn-primary btn-sm' >Submit Concert</button>
+    <button onClick={handleAddConcert} className='btn btn-primary btn-sm' >Update</button>
     </>
   )
 }
