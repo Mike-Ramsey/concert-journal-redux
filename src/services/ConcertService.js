@@ -30,13 +30,7 @@ export const createConcert = async (concert) => {
 
 export const updateConcert = async (concert) => {
   try {
-      const concertWithoutId = { 
-        artist: concert.artist,
-        date: concert.date,
-        venue: concert.venue,
-        notes: concert.notes
-      };
-      const response = await fetch(CONCERT_ENDPOINT + "/" + concert.id, getFetchOptions("PUT", concertWithoutId));
+      const response = await fetch(CONCERT_ENDPOINT + "/" + concert.id, getFetchOptions("PUT", concert));
       return response;
   }
   catch(e) {
