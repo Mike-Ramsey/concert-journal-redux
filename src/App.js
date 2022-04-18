@@ -35,7 +35,6 @@ export default function App() {
   const startEdit = (concert) => {
     setEditConcert(true);
     setCurrentConcert(concert);
-    console.log(concert);
   };
 
   const handleEdit = async (currentConcert) => {

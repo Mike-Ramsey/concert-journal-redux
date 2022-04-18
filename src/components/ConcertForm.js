@@ -14,7 +14,6 @@ export default function ConcertForm({ concert, addConcert }) {
       venue: venueValue,
       notes: notesValue
     });
-    console.log(artistValue);
     setDateValue('');
     setArtistValue('');
     setVenueValue('');
