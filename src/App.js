@@ -32,13 +32,15 @@ export default function App() {
     refreshConcerts();
   };
    
-  const startEdit = (id, concert) => {
+  const startEdit = (concert) => {
     setEditConcert(true);
     setCurrentConcert(concert);
+    console.log(concert);
+    console.log(currentConcert);
   };
 
-  const handleEdit = async (editedConcert) => {
-    await updateConcert(editedConcert);
+  const handleEdit = async (concert) => {
+    await updateConcert({...currentConcert});
     setCurrentConcert(initialConcert);
     setEditConcert(false);
     refreshConcerts();
