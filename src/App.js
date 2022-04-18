@@ -37,8 +37,8 @@ export default function App() {
     setCurrentConcert(concert);
   };
 
-  const handleEdit = async (newEditConcert) => {
-    await updateConcert(newEditConcert);
+  const handleEdit = async (editedConcert) => {
+    await updateConcert(editedConcert);
     setCurrentConcert(initialConcert);
     setEditConcert(false);
     refreshConcerts();

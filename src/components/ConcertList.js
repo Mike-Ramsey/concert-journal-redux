@@ -7,7 +7,7 @@ function Concert({ concert, onDelete, onStartEdit}) {
       <td key={`artist-${concert.id}`}>{concert.artist}</td>
       <td key={`venue-${concert.id}`}>{concert.venue}</td>
       <td key={`notes-${concert.id}`}>{concert.notes}</td>
-      <td><button className='btn btn-sm btn-success' onClick={() => onStartEdit(concert)}>Edit</button></td>
+      <td><button className='btn btn-sm btn-success' onClick={() => onStartEdit({concert})}>Edit</button></td>
       <td><button className='btn btn-sm btn-danger' onClick={() => onDelete(concert)}>Delete</button></td>
     </tr>
   )
