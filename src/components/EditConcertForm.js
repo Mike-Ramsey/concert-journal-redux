@@ -12,6 +12,10 @@ export default function EditConcertForm({ currentConcert, setEditConcert, handle
     setConcert(currentConcert)
   }, [])
 
+  const update = () => {
+    handleEdit(currentConcert);
+  }
+
   return (
     <>
     <div className="mb-2">
@@ -30,7 +34,7 @@ export default function EditConcertForm({ currentConcert, setEditConcert, handle
       <label className="form-label">Notes </label>
       <textarea rows='2' className="form-control" value={notesValue} onChange={(e) => setNotesValue(e.target.value)} />
     </div>
-    <button onClick={handleEdit} className='btn btn-primary btn-sm mb-2' >Update</button>
+    <button onClick={update} className='btn btn-primary btn-sm mb-2' >Update</button>
     <button className='btn btn-warning btn-sm mb-2' type="submit" onClick={() => setEditConcert(false)} >Cancel</button>
     </>
   )
