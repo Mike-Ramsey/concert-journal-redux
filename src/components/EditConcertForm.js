@@ -12,8 +12,8 @@ export default function EditConcertForm({ currentConcert, setEditConcert, handle
     setConcert(currentConcert)
   }, [])
 
-  const update = (concert) => {
-    handleEdit(concert);
+  const update = () => {
+    handleEdit({ id: currentConcert.id, date: dateValue, artist: artistValue, venue: venueValue, notes: notesValue });
   }
 
   return (

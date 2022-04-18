@@ -19,7 +19,7 @@ export const getConcerts = async () => {
 
 export const createConcert = async (concert) => {
   try {
-      const response = await fetch(CONCERT_ENDPOINT, getFetchOptions("POST", concert))
+      const response = await fetch(CONCERT_ENDPOINT + "/" + concert.id, getFetchOptions("POST", concert))
       return await response.json();
   }
   catch(e) {
@@ -30,7 +30,7 @@ export const createConcert = async (concert) => {
 
 export const updateConcert = async (concert) => {
   try {
-      const response = await fetch(CONCERT_ENDPOINT + "/" + concert.id, getFetchOptions("PUT", { date: concert.date, artist: concert.artist, venue: concert.venue, notes: concert.notes }));
+      const response = await fetch(CONCERT_ENDPOINT + "/" + concert.id, getFetchOptions("PUT", concert));
       return response;
   }
   catch(e) {

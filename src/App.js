@@ -10,7 +10,7 @@ export default function App() {
   const [concerts, setConcerts] = useState([]);
   const [editConcert, setEditConcert] = useState(false);
   
-  const initialConcert = { id: null, date: null, artist: '', venue: '', notes: '' };
+  const initialConcert = { date: null, artist: '', venue: '', notes: '' };
   const [currentConcert, setCurrentConcert] = useState(initialConcert)
 
   const refreshConcerts = async () => {
@@ -36,11 +36,10 @@ export default function App() {
     setEditConcert(true);
     setCurrentConcert(concert);
     console.log(concert);
-    console.log(currentConcert);
   };
 
-  const handleEdit = async () => {
-    await updateConcert({...currentConcert});
+  const handleEdit = async (currentConcert) => {
+    await updateConcert({ ...currentConcert, date: currentConcert.date, artist: currentConcert.artist, venue: currentConcert.venue, notes: currentConcert.notes });
     setCurrentConcert(initialConcert);
     setEditConcert(false);
     refreshConcerts();
