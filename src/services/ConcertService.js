@@ -19,7 +19,7 @@ export const getConcerts = async () => {
 
 export const createConcert = async (concert) => {
   try {
-      const response = await fetch(CONCERT_ENDPOINT + "/" + concert.id, getFetchOptions("POST", concert))
+      const response = await fetch(CONCERT_ENDPOINT, getFetchOptions("POST", concert))
       return await response.json();
   }
   catch(e) {
