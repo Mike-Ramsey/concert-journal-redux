@@ -3,17 +3,17 @@ import React, { useState, useEffect } from 'react';
 export default function EditConcertForm({ currentConcert, setEditConcert, handleEdit }) {
   
   const [concert, setConcert] = useState(currentConcert);
-  const [dateValue, setDateValue] = useState((currentConcert) ? currentConcert.date : "");
-  const [artistValue, setArtistValue] = useState((currentConcert) ? currentConcert.artist : "");
-  const [venueValue, setVenueValue] = useState((currentConcert) ? currentConcert.venue : "");
-  const [notesValue, setNotesValue] = useState((currentConcert) ? currentConcert.notes : "");
+  const [dateValue, setDateValue] = useState(currentConcert.date);
+  const [artistValue, setArtistValue] = useState(currentConcert.artist);
+  const [venueValue, setVenueValue] = useState(currentConcert.venue);
+  const [notesValue, setNotesValue] = useState(currentConcert.notes);
 
   useEffect(() => {
     setConcert(currentConcert)
   }, [])
 
-  const update = () => {
-    handleEdit(currentConcert);
+  const update = (concert) => {
+    handleEdit(concert);
   }
 
   return (
